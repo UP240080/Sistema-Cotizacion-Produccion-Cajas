@@ -1,0 +1,333 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif}
+:root{
+  --beige:#F5EFE6;
+  --beige2:#EDE4D7;
+  --cafe-claro:#C4A882;
+  --cafe:#8B5E3C;
+  --cafe-oscuro:#5C3A1E;
+  --cafe-btn:#6B3F24;
+  --blanco:#FFFFFF;
+  --text-dark:#2C1A0E;
+  --text-mid:#6B4C35;
+  --text-muted:#A08060;
+  --border:#D9C9B5;
+  --danger:#C0392B;
+  --danger-light:#FAE8E6;
+  --success:#2E7D32;
+  --input-bg:#FDFAF6;
+  --row-hover:#FBF6EF;
+}
+.app{width:100%;min-height:600px;background:var(--beige);font-size:14px;color:var(--text-dark)}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;background:var(--blanco);border-bottom:1px solid var(--border)}
+.topbar-brand{display:flex;align-items:center;gap:10px;font-weight:500;font-size:15px;color:var(--cafe-oscuro)}
+.topbar-brand i{font-size:20px;color:var(--cafe)}
+.topbar-right{display:flex;align-items:center;gap:12px}
+.icon-btn{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;background:transparent;border:1px solid var(--border);color:var(--text-mid);position:relative}
+.icon-btn:hover{background:var(--beige)}
+.badge-dot{position:absolute;top:6px;right:6px;width:7px;height:7px;background:var(--danger);border-radius:50%}
+.avatar{width:34px;height:34px;border-radius:50%;background:var(--cafe);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;cursor:pointer}
+.content{padding:24px}
+.breadcrumb{font-size:12px;color:var(--text-muted);margin-bottom:6px}
+.breadcrumb span{color:var(--cafe-oscuro);font-weight:500}
+.page-title{font-size:22px;font-weight:500;color:var(--cafe-oscuro);margin-bottom:20px}
+.search-row{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.search-wrap{flex:1;display:flex;align-items:center;gap:8px;background:var(--blanco);border:1px solid var(--border);border-radius:10px;padding:0 14px;height:40px}
+.search-wrap i{color:var(--text-muted);font-size:16px}
+.search-wrap input{border:none;outline:none;background:transparent;font-size:14px;color:var(--text-dark);width:100%}
+.search-wrap input::placeholder{color:var(--text-muted)}
+.btn-primary{display:flex;align-items:center;gap:6px;padding:0 18px;height:40px;background:var(--cafe-btn);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:500;cursor:pointer;transition:background .15s}
+.btn-primary:hover{background:var(--cafe-oscuro)}
+.btn-primary:active{transform:scale(0.98)}
+.btn-secondary{display:flex;align-items:center;gap:6px;padding:0 16px;height:38px;background:var(--blanco);color:var(--text-mid);border:1px solid var(--border);border-radius:10px;font-size:14px;cursor:pointer;transition:background .15s}
+.btn-secondary:hover{background:var(--beige)}
+.btn-danger{display:flex;align-items:center;gap:6px;padding:0 16px;height:38px;background:var(--danger);color:#fff;border:none;border-radius:10px;font-size:14px;cursor:pointer}
+.btn-danger:hover{background:#a93226}
+.card{background:var(--blanco);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+table{width:100%;border-collapse:collapse}
+thead tr{background:var(--beige2)}
+th{padding:11px 16px;text-align:left;font-size:11px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
+tbody tr{border-top:1px solid var(--border);transition:background .1s}
+tbody tr:hover{background:var(--row-hover)}
+td{padding:14px 16px;font-size:14px;color:var(--text-dark)}
+.id-badge{font-size:12px;color:var(--cafe);background:var(--beige2);padding:3px 8px;border-radius:6px;font-weight:500}
+.company-name{font-weight:500}
+.contact-name{color:var(--text-mid)}
+.action-btns{display:flex;align-items:center;gap:8px}
+.act-btn{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text-mid);font-size:15px;transition:all .15s}
+.act-btn:hover{background:var(--beige);color:var(--cafe-oscuro)}
+.act-btn.del:hover{background:var(--danger-light);color:var(--danger);border-color:#f5c0bc}
+.pagination{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-top:1px solid var(--border)}
+.page-info{font-size:13px;color:var(--text-muted)}
+.page-nums{display:flex;gap:6px}
+.pn{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;border:1px solid transparent;color:var(--text-mid)}
+.pn:hover{background:var(--beige)}
+.pn.active{background:var(--cafe-btn);color:#fff;border-color:var(--cafe-btn)}
+.screen{display:none}
+.screen.active{display:block}
+.tabs{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
+.tab{padding:7px 16px;border-radius:8px;font-size:13px;cursor:pointer;border:1px solid var(--border);background:var(--blanco);color:var(--text-mid);transition:all .15s}
+.tab:hover{background:var(--beige)}
+.tab.active{background:var(--cafe-btn);color:#fff;border-color:var(--cafe-btn)}
+.form-card{background:var(--blanco);border:1px solid var(--border);border-radius:14px;padding:28px}
+.form-section-title{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:var(--cafe-oscuro);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.form-section-title i{width:30px;height:30px;border-radius:8px;background:var(--beige2);display:flex;align-items:center;justify-content:center;color:var(--cafe);font-size:16px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.form-row.single{grid-template-columns:1fr}
+.form-row.three{grid-template-columns:1fr 1fr 1fr}
+.form-group{display:flex;flex-direction:column;gap:5px}
+.form-group label{font-size:12px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:.4px}
+.form-group input,.form-group select{height:40px;border:1px solid var(--border);border-radius:8px;padding:0 12px;font-size:14px;color:var(--text-dark);background:var(--input-bg);outline:none;transition:border .15s}
+.form-group input:focus,.form-group select:focus{border-color:var(--cafe);box-shadow:0 0 0 3px rgba(139,94,60,.12)}
+.form-group input.error{border-color:var(--danger)}
+.form-group .err-msg{font-size:11px;color:var(--danger);display:none}
+.form-group input.error+.err-msg{display:block}
+.form-actions-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.form-actions-top h1{font-size:22px;font-weight:500;color:var(--cafe-oscuro)}
+.form-actions-top div{display:flex;gap:10px}
+.section-spacer{margin-top:24px}
+.detail-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:24px}
+.detail-header h1{font-size:22px;font-weight:500;color:var(--cafe-oscuro)}
+.detail-header div{display:flex;gap:10px}
+.client-card-header{display:flex;align-items:center;gap:16px;padding:20px;border-bottom:1px solid var(--border)}
+.client-avatar{width:52px;height:52px;border-radius:12px;background:var(--beige2);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--cafe)}
+.client-card-title{font-size:17px;font-weight:500;color:var(--cafe-oscuro)}
+.client-card-subtitle{font-size:12px;color:var(--text-muted);margin-top:2px}
+.client-fields{padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:0}
+.field-item{padding:12px 0;border-bottom:1px solid var(--border)}
+.field-item:nth-last-child(-n+2){border-bottom:none}
+.field-label{font-size:11px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px}
+.field-value{font-size:14px;color:var(--text-dark)}
+.field-value.link{color:var(--cafe);text-decoration:none}
+.modal-backdrop{background:rgba(60,30,10,.45);min-height:420px;display:flex;align-items:center;justify-content:center;border-radius:14px;padding:20px}
+.modal{background:var(--blanco);border-radius:16px;padding:36px 32px;width:100%;max-width:400px;text-align:center}
+.modal-icon{width:56px;height:56px;border-radius:50%;background:var(--danger-light);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--danger);font-size:26px}
+.modal-title{font-size:18px;font-weight:500;color:var(--text-dark);margin-bottom:12px}
+.modal-body{font-size:14px;color:var(--text-mid);line-height:1.6;margin-bottom:24px}
+.modal-body strong{color:var(--text-dark)}
+.modal-btns{display:flex;flex-direction:column;gap:10px}
+.modal-footer{margin-top:20px;padding-top:16px;border-top:1px solid var(--border);font-size:12px;color:var(--text-muted)}
+</style>
+
+<div class="app">
+  <div class="topbar">
+    <div class="topbar-brand"><i class="ti ti-users" aria-hidden="true"></i> Sistema de Gestión de Clientes</div>
+    <div class="topbar-right">
+      <div class="icon-btn"><i class="ti ti-bell" aria-hidden="true"></i><span class="badge-dot"></span></div>
+      <div class="icon-btn"><i class="ti ti-settings" aria-hidden="true"></i></div>
+      <div class="avatar">RM</div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="tabs">
+      <div class="tab active" onclick="showTab('lista')"><i class="ti ti-list" aria-hidden="true"></i> Lista de clientes</div>
+      <div class="tab" onclick="showTab('nuevo')"><i class="ti ti-user-plus" aria-hidden="true"></i> Nuevo cliente</div>
+      <div class="tab" onclick="showTab('detalle')"><i class="ti ti-id-badge" aria-hidden="true"></i> Detalle</div>
+      <div class="tab" onclick="showTab('editar')"><i class="ti ti-edit" aria-hidden="true"></i> Editar cliente</div>
+      <div class="tab" onclick="showTab('modal')"><i class="ti ti-trash" aria-hidden="true"></i> Confirmar eliminación</div>
+    </div>
+
+    <!-- LISTA -->
+    <div id="screen-lista" class="screen active">
+      <div class="breadcrumb">Clientes / <span>Lista de Clientes</span></div>
+      <div class="page-title">Directorio de Clientes</div>
+      <div class="search-row">
+        <div class="search-wrap">
+          <i class="ti ti-search" aria-hidden="true"></i>
+          <input type="text" placeholder="Buscar clientes por nombre, RFC…" oninput="filterTable(this.value)">
+        </div>
+        <button class="btn-primary"><i class="ti ti-user-plus" aria-hidden="true"></i> Nuevo Cliente</button>
+      </div>
+      <div class="card">
+        <table>
+          <thead><tr>
+            <th>ID</th><th>Cliente / Empresa</th><th>Contacto</th><th>Teléfono</th><th>Acciones</th>
+          </tr></thead>
+          <tbody id="table-body">
+            <tr><td><span class="id-badge">CL-2024-001</span></td><td><span class="company-name">Cartonajes Estrella S.A. de C.V.</span></td><td class="contact-name">Ing. Roberto Méndez</td><td>+52 (55) 4892 1022</td><td><div class="action-btns"><button class="act-btn" title="Ver"><i class="ti ti-eye" aria-hidden="true"></i></button><button class="act-btn" title="Editar"><i class="ti ti-edit" aria-hidden="true"></i></button><button class="act-btn del" title="Eliminar"><i class="ti ti-trash" aria-hidden="true"></i></button></div></td></tr>
+            <tr><td><span class="id-badge">CL-2024-002</span></td><td><span class="company-name">Empaques Modernos de México</span></td><td class="contact-name">Lic. Silvia Pinal</td><td>+52 (33) 1205 9934</td><td><div class="action-btns"><button class="act-btn" title="Ver"><i class="ti ti-eye" aria-hidden="true"></i></button><button class="act-btn" title="Editar"><i class="ti ti-edit" aria-hidden="true"></i></button><button class="act-btn del" title="Eliminar"><i class="ti ti-trash" aria-hidden="true"></i></button></div></td></tr>
+            <tr><td><span class="id-badge">CL-2024-003</span></td><td><span class="company-name">Logística & Corrugados del Norte</span></td><td class="contact-name">Ing. Carlos Gómez</td><td>+52 (81) 8345 6789</td><td><div class="action-btns"><button class="act-btn" title="Ver"><i class="ti ti-eye" aria-hidden="true"></i></button><button class="act-btn" title="Editar"><i class="ti ti-edit" aria-hidden="true"></i></button><button class="act-btn del" title="Eliminar"><i class="ti ti-trash" aria-hidden="true"></i></button></div></td></tr>
+            <tr><td><span class="id-badge">CL-2024-004</span></td><td><span class="company-name">Soluciones Box-Pack S.A.</span></td><td class="contact-name">Sra. Martha Sánchez</td><td>+52 (55) 5678 1234</td><td><div class="action-btns"><button class="act-btn" title="Ver"><i class="ti ti-eye" aria-hidden="true"></i></button><button class="act-btn" title="Editar"><i class="ti ti-edit" aria-hidden="true"></i></button><button class="act-btn del" title="Eliminar"><i class="ti ti-trash" aria-hidden="true"></i></button></div></td></tr>
+            <tr><td><span class="id-badge">CL-2024-005</span></td><td><span class="company-name">Empaques del Norte S.A.</span></td><td class="contact-name">Ing. Luis Torres</td><td>+52 (81) 8290 4455</td><td><div class="action-btns"><button class="act-btn" title="Ver"><i class="ti ti-eye" aria-hidden="true"></i></button><button class="act-btn" title="Editar"><i class="ti ti-edit" aria-hidden="true"></i></button><button class="act-btn del" title="Eliminar"><i class="ti ti-trash" aria-hidden="true"></i></button></div></td></tr>
+          </tbody>
+        </table>
+        <div class="pagination">
+          <span class="page-info" id="page-info">Mostrando 5 de 128 clientes</span>
+          <div class="page-nums">
+            <div class="pn"><i class="ti ti-chevron-left" aria-hidden="true"></i></div>
+            <div class="pn active">1</div>
+            <div class="pn">2</div>
+            <div class="pn">3</div>
+            <div class="pn">…</div>
+            <div class="pn">32</div>
+            <div class="pn"><i class="ti ti-chevron-right" aria-hidden="true"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NUEVO CLIENTE -->
+    <div id="screen-nuevo" class="screen">
+      <div class="form-actions-top">
+        <div>
+          <div class="breadcrumb">Clientes / <span>Nuevo Cliente</span></div>
+          <h1>Registrar Nuevo Cliente</h1>
+          <div style="font-size:13px;color:var(--text-muted);margin-top:4px">Complete los datos del nuevo cliente</div>
+        </div>
+        <div><button class="btn-secondary">Cancelar</button><button class="btn-primary" onclick="validateForm('form-nuevo')"><i class="ti ti-device-floppy" aria-hidden="true"></i> Guardar Cliente</button></div>
+      </div>
+      <div class="form-card" id="form-nuevo">
+        <div class="form-section-title"><span style="width:30px;height:30px;border-radius:8px;background:var(--beige2);display:flex;align-items:center;justify-content:center;color:var(--cafe);font-size:16px"><i class="ti ti-user" aria-hidden="true"></i></span> Información del Cliente</div>
+        <div class="form-row">
+          <div class="form-group"><label>Nombre</label><input type="text" placeholder="Nombre" required><span class="err-msg">Campo requerido</span></div>
+          <div class="form-group"><label>Apellido</label><input type="text" placeholder="Apellido" required><span class="err-msg">Campo requerido</span></div>
+        </div>
+        <div class="form-row single">
+          <div class="form-group"><label>Empresa</label><input type="text" placeholder="Nombre de la empresa" required><span class="err-msg">Campo requerido</span></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Teléfono</label><input type="tel" placeholder="55 0000 0000"></div>
+          <div class="form-group"><label>Correo Electrónico</label><input type="email" placeholder="ejemplo@empresa.com"></div>
+        </div>
+        <div class="section-spacer">
+          <div class="form-section-title"><span style="width:30px;height:30px;border-radius:8px;background:var(--beige2);display:flex;align-items:center;justify-content:center;color:var(--cafe);font-size:16px"><i class="ti ti-map-pin" aria-hidden="true"></i></span> Ubicación</div>
+          <div class="form-row single"><div class="form-group"><label>Dirección</label><input type="text" placeholder="Calle y número"></div></div>
+          <div class="form-row three">
+            <div class="form-group"><label>Ciudad</label><input type="text" placeholder="Ciudad"></div>
+            <div class="form-group"><label>Estado</label>
+              <select><option value="">Seleccione…</option><option>Aguascalientes</option><option>Baja California</option><option>Ciudad de México</option><option>Jalisco</option><option>Nuevo León</option><option>Querétaro</option><option>Sonora</option><option>Veracruz</option></select>
+            </div>
+            <div class="form-group"><label>Código Postal</label><input type="text" placeholder="00000" maxlength="5"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DETALLE -->
+    <div id="screen-detalle" class="screen">
+      <div class="detail-header">
+        <div>
+          <div class="breadcrumb">Clientes / <span>Detalle del Cliente</span></div>
+          <h1>Información del Cliente</h1>
+        </div>
+        <div>
+          <button class="btn-secondary" style="color:var(--danger);border-color:#f5c0bc"><i class="ti ti-trash" aria-hidden="true"></i> Eliminar</button>
+          <button class="btn-primary"><i class="ti ti-edit" aria-hidden="true"></i> Editar Cliente</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="client-card-header">
+          <div class="client-avatar"><i class="ti ti-building" aria-hidden="true"></i></div>
+          <div>
+            <div class="client-card-title">Empaques del Norte S.A.</div>
+            <div class="client-card-subtitle">Registro: CLI-2024-0892</div>
+          </div>
+        </div>
+        <div class="client-fields">
+          <div class="field-item"><div class="field-label">Nombre</div><div class="field-value">Marta</div></div>
+          <div class="field-item"><div class="field-label">Apellido</div><div class="field-value">Rodríguez</div></div>
+          <div class="field-item"><div class="field-label">Empresa</div><div class="field-value">Empaques del Norte S.A.</div></div>
+          <div class="field-item"><div class="field-label">Teléfono</div><div class="field-value">+52 (81) 8290-4455</div></div>
+          <div class="field-item" style="grid-column:1/3"><div class="field-label">Correo Electrónico</div><div class="field-value"><a href="#" class="field-value link">m.rodriguez@empaquesnorte.mx</a></div></div>
+          <div class="field-item" style="grid-column:1/3"><div class="field-label">Dirección</div><div class="field-value">Calle 45 # 12-89, Zona Industrial Los Álamos</div></div>
+          <div class="field-item"><div class="field-label">Ciudad</div><div class="field-value">Monterrey</div></div>
+          <div class="field-item"><div class="field-label">Estado</div><div class="field-value">Nuevo León</div></div>
+          <div class="field-item"><div class="field-label">Código Postal</div><div class="field-value">64000</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDITAR -->
+    <div id="screen-editar" class="screen">
+      <div class="form-actions-top">
+        <div>
+          <div class="breadcrumb">Clientes / <span>Editar Cliente</span></div>
+          <h1>Editar Cliente: Cartones del Norte S.A.</h1>
+          <div style="font-size:13px;color:var(--text-muted);margin-top:4px">Actualice los datos personales y de ubicación</div>
+        </div>
+        <div><button class="btn-secondary">Cancelar</button><button class="btn-primary"><i class="ti ti-device-floppy" aria-hidden="true"></i> Guardar Cambios</button></div>
+      </div>
+      <div class="form-card">
+        <div class="form-section-title"><span style="width:30px;height:30px;border-radius:8px;background:var(--beige2);display:flex;align-items:center;justify-content:center;color:var(--cafe);font-size:16px"><i class="ti ti-user" aria-hidden="true"></i></span> Información del Cliente</div>
+        <div class="form-row">
+          <div class="form-group"><label>Nombre</label><input type="text" value="Roberto"></div>
+          <div class="form-group"><label>Apellido</label><input type="text" value="Mendivil"></div>
+        </div>
+        <div class="form-row single">
+          <div class="form-group"><label>Empresa</label><input type="text" value="Cartones del Norte S.A."></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Teléfono</label><input type="tel" value="+56 9 8765 4321"></div>
+          <div class="form-group"><label>Correo Electrónico</label><input type="email" value="r.mendivil@cartonesnorte.cl"></div>
+        </div>
+        <div class="section-spacer">
+          <div class="form-section-title"><span style="width:30px;height:30px;border-radius:8px;background:var(--beige2);display:flex;align-items:center;justify-content:center;color:var(--cafe);font-size:16px"><i class="ti ti-map-pin" aria-hidden="true"></i></span> Ubicación</div>
+          <div class="form-row single"><div class="form-group"><label>Dirección</label><input type="text" value="Av. Industrial Poniente 4500, Bodega 4"></div></div>
+          <div class="form-row three">
+            <div class="form-group"><label>Ciudad</label><input type="text" value="Santiago"></div>
+            <div class="form-group"><label>Estado</label><input type="text" value="RM"></div>
+            <div class="form-group"><label>Código Postal</label><input type="text" value="8320000"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL ELIMINACIÓN -->
+    <div id="screen-modal" class="screen">
+      <div class="breadcrumb" style="margin-bottom:16px">Clientes / <span>Confirmar Eliminación</span></div>
+      <div class="modal-backdrop">
+        <div class="modal">
+          <div class="modal-icon"><i class="ti ti-trash-x" aria-hidden="true"></i></div>
+          <div class="modal-title">¿Confirmar eliminación de cliente?</div>
+          <div class="modal-body">Esta acción no se puede deshacer. ¿Está seguro de que desea eliminar a <strong>Logística Cosmopolita</strong> del sistema? Perderá el acceso a su historial de cotizaciones vinculadas.</div>
+          <div class="modal-btns">
+            <button class="btn-danger" style="justify-content:center;height:44px;font-size:15px;border-radius:10px"><i class="ti ti-trash" aria-hidden="true"></i> Eliminar Cliente</button>
+            <button class="btn-secondary" style="justify-content:center;height:44px;font-size:15px;border-radius:10px">Cancelar</button>
+          </div>
+          <div class="modal-footer">ID de Operación: DEL-2023-8842</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showTab(name){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('screen-'+name).classList.add('active');
+  const tabs=['lista','nuevo','detalle','editar','modal'];
+  const idx=tabs.indexOf(name);
+  document.querySelectorAll('.tab')[idx].classList.add('active');
+}
+
+function filterTable(val){
+  const rows=document.querySelectorAll('#table-body tr');
+  let visible=0;
+  rows.forEach(r=>{
+    const txt=r.textContent.toLowerCase();
+    if(txt.includes(val.toLowerCase())){r.style.display='';visible++;}
+    else{r.style.display='none';}
+  });
+  document.getElementById('page-info').textContent='Mostrando '+visible+' de 128 clientes';
+}
+
+function validateForm(id){
+  const form=document.getElementById(id);
+  const required=form.querySelectorAll('input[required]');
+  let valid=true;
+  required.forEach(inp=>{
+    if(!inp.value.trim()){inp.classList.add('error');valid=false;}
+    else{inp.classList.remove('error');}
+  });
+  if(valid){
+    const btn=form.parentElement.querySelector('.btn-primary');
+    btn.textContent='✓ Guardado';
+    btn.style.background='var(--success)';
+    setTimeout(()=>{btn.innerHTML='<i class="ti ti-device-floppy"></i> Guardar Cliente';btn.style.background='';},2000);
+  }
+}
+</script>
