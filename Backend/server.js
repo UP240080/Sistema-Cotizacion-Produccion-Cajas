@@ -315,6 +315,55 @@ app.post('/api/cotizaciones', async (req, res) => {
 });
 
 /**
+ * PUT /api/cotizaciones/:id
+ * Actualiza una cotización completa y recalcula precios
+ */
+app.put('/api/cotizaciones/:id', async (req, res) => {
+  try {
+    const {
+      clienteId, tipoCotizacion, tipoCartonId, tipoVentaId,
+      largo, ancho, alto, cantidad,
+      costoSuaje, costoMarco, costoPintura, incluyeSerigrafia,
+      precioUnitario, subtotal, iva, total,
+      estatus, notas
+    } = req.body;
+
+    const [result] = await pool.query(
+      `UPDATE cotizaciones
+         SET cliente_id=?, tipo_cotizacion=?, tipo_carton_id=?, tipo_venta_id=?,
+             largo=?, ancho=?, alto=?, cantidad=?,
+             costo_suaje=?, costo_marco=?, costo_pintura=?, incluye_serigrafia=?,
+             precio_unitario=?, subtotal=?, iva=?, total=?,
+             estatus=?, notas=?
+       WHERE id=?`,
+      [clienteId, tipoCotizacion || 'plano', tipoCartonId, tipoVentaId,
+       largo || 0, ancho || 0, alto || 0, cantidad || 1,
+       costoSuaje || 0, costoMarco || 0, costoPintura || 0, incluyeSerigrafia ? 1 : 0,
+       precioUnitario || 0, subtotal || 0, iva || 0, total || 0,
+       estatus || 'pendiente', notas || null,
+       req.params.id]
+    );
+
+    if (result.affectedRows === 0) return err(res, 'Cotización no encontrada', 404);
+
+    const [[actualizada]] = await pool.query(
+      `SELECT c.*, cl.empresa AS cliente_empresa,
+              CONCAT(cl.nombre,' ',cl.apellido) AS cliente_contacto,
+              tc.nombre AS tipo_carton_nombre, tv.nombre AS tipo_venta_nombre
+       FROM cotizaciones c
+       JOIN clientes     cl ON cl.id = c.cliente_id
+       JOIN tipos_carton tc ON tc.id = c.tipo_carton_id
+       JOIN tipos_venta  tv ON tv.id = c.tipo_venta_id
+       WHERE c.id = ?`,
+      [req.params.id]
+    );
+    ok(res, actualizada);
+  } catch (e) {
+    err(res, e.message, 500);
+  }
+});
+
+/**
  * PATCH /api/cotizaciones/:id/estatus
  * Body: { estatus }
  */

@@ -198,6 +198,89 @@ input:checked+.slider:before{transform:translateX(18px)}
 .field-value.link{color:var(--brown-light);text-decoration:none}
 .detail-actions{display:flex;gap:10px}
 .quick-cot-btn{width:100%;background:var(--brown-dark);color:#fff;border:none;border-radius:var(--radius-sm);padding:12px;font-size:13px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;margin-top:8px}
+
+/* ── GESTIÓN COTIZACIONES — nuevos estilos ── */
+.filter-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--border);background:var(--brown-ultra-pale)}
+.filter-bar input,.filter-bar select{background:var(--card-bg);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:8px 12px;font-size:13px;color:var(--text-dark);font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+.filter-bar input:focus,.filter-bar select:focus{border-color:var(--brown-light)}
+.filter-bar select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239B7B6A' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px;cursor:pointer}
+.filter-search{flex:1;min-width:180px;position:relative}
+.filter-search i{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:14px;pointer-events:none}
+.filter-search input{padding-left:32px;width:100%}
+
+/* detalle cotización */
+.cot-detail-grid{display:grid;grid-template-columns:1fr 300px;gap:20px;align-items:start}
+.info-section{background:var(--card-bg);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);margin-bottom:16px;overflow:hidden}
+.info-section-header{padding:14px 20px;background:var(--brown-ultra-pale);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.info-section-icon{width:28px;height:28px;border-radius:8px;background:var(--brown-pale);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--brown-dark);flex-shrink:0}
+.info-section-title{font-size:13px;font-weight:700;color:var(--text-dark);text-transform:uppercase;letter-spacing:.05em}
+.info-section-body{padding:18px 20px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.info-field .f-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-soft);margin-bottom:4px}
+.info-field .f-value{font-size:14px;color:var(--text-dark);font-weight:500}
+
+/* desglose cálculo */
+.calc-steps{display:flex;flex-direction:column;gap:0}
+.calc-step{display:flex;align-items:center;justify-content:space-between;padding:9px 16px;border-bottom:1px solid var(--border)}
+.calc-step:last-child{border-bottom:none}
+.calc-step.highlight{background:var(--brown-ultra-pale)}
+.calc-step.total-step{background:var(--brown-dark);border-radius:0 0 var(--radius-sm) var(--radius-sm)}
+.calc-step.total-step .cs-label,.calc-step.total-step .cs-value{color:#fff;font-weight:700;font-size:15px}
+.cs-label{font-size:13px;color:var(--text-mid);display:flex;align-items:center;gap:6px}
+.cs-value{font-size:13px;font-weight:600;color:var(--text-dark)}
+.cs-arrow{font-size:11px;color:var(--text-muted);margin:0 4px;opacity:.5}
+
+/* estado badges */
+.badge-draft{background:#F0F0F0;color:#666}
+.badge-borrador{background:#F0F0F0;color:#666}
+.badge-pendiente{background:var(--warning-bg);color:var(--warning)}
+.badge-en_revision{background:var(--review-bg);color:var(--review)}
+.badge-aprobada{background:var(--success-bg);color:var(--success)}
+.badge-rechazada{background:var(--danger-bg);color:var(--danger)}
+
+/* sticky sidebar detalle */
+.cot-sidebar-sticky{position:sticky;top:0;display:flex;flex-direction:column;gap:14px}
+.cot-action-card{background:var(--card-bg);border-radius:var(--radius);border:1px solid var(--border);padding:18px;box-shadow:var(--shadow)}
+.cot-action-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-soft);margin-bottom:12px}
+.cot-action-btn{width:100%;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;margin-bottom:8px;border:1.5px solid var(--border);background:var(--card-bg);color:var(--text-dark)}
+.cot-action-btn:hover{background:var(--brown-ultra-pale);border-color:var(--brown-light);color:var(--brown-dark)}
+.cot-action-btn:last-child{margin-bottom:0}
+.cot-action-btn.primary{background:var(--brown-dark);color:#fff;border-color:var(--brown-dark)}
+.cot-action-btn.primary:hover{background:var(--brown-mid)}
+.cot-action-btn.danger{border-color:#f5c0bc;color:var(--danger)}
+.cot-action-btn.danger:hover{background:var(--danger-bg)}
+
+/* total card sidebar */
+.total-card-detail{background:var(--brown-dark);border-radius:var(--radius);padding:20px;color:#fff}
+.tcd-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.6);margin-bottom:6px}
+.tcd-amount{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:#fff;margin-bottom:4px}
+.tcd-rows{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.15)}
+.tcd-row{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.75);margin-bottom:6px}
+.tcd-row strong{color:#fff;font-weight:600}
+
+/* modal editar */
+.modal-edit{max-width:600px;width:90%;padding:28px}
+.modal-edit .modal-title{font-size:17px;font-weight:700;text-align:left;margin-bottom:4px}
+.modal-edit .modal-subtitle{font-size:13px;color:var(--text-soft);margin-bottom:20px}
+.modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.modal-grid label{display:block;font-size:11.5px;font-weight:600;color:var(--text-mid);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}
+.modal-grid input,.modal-grid select,.modal-grid textarea{width:100%;background:var(--input-bg);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:9px 12px;font-size:13px;color:var(--text-dark);font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+.modal-grid input:focus,.modal-grid select:focus,.modal-grid textarea:focus{border-color:var(--brown-light)}
+.modal-grid textarea{resize:vertical;min-height:70px}
+.modal-full{grid-column:1/-1}
+.modal-edit-btns{display:flex;justify-content:flex-end;gap:10px;margin-top:20px;padding-top:16px;border-top:1px solid var(--border)}
+
+/* estado selector */
+.estatus-select{padding:6px 12px;border-radius:20px;border:1.5px solid var(--border);font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%239B7B6A' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;padding-right:24px;outline:none}
+
+/* PDF preview loading */
+.pdf-loading{text-align:center;padding:40px;color:var(--text-soft);font-size:14px}
+.pdf-loading .spinner{display:inline-block;width:28px;height:28px;border:3px solid var(--border);border-top-color:var(--brown-dark);border-radius:50%;animation:spin .8s linear infinite;margin-bottom:12px}
+
+@media(max-width:900px){
+  .cot-detail-grid{grid-template-columns:1fr}
+  .info-grid{grid-template-columns:1fr}
+}
 .quick-cot-btn:hover{background:var(--brown-mid)}
 
 /* ── MODAL ── */
@@ -264,6 +347,9 @@ input:checked+.slider:before{transform:translateX(18px)}
     <div class="nav-group">Cotizaciones</div>
     <div class="nav-item active" id="nav-cotizaciones" onclick="navTo('cotizaciones')">
       <i class="ti ti-file-text"></i> Cotizaciones
+    </div>
+    <div class="nav-item" id="nav-gestion-cot" onclick="navTo('gestion-cot')">
+      <i class="ti ti-list-details"></i> Gestión Cotizaciones
     </div>
     <div class="nav-item" id="nav-nueva-cot" onclick="navTo('nueva-cot')">
       <i class="ti ti-file-plus"></i> Nueva Cotización
@@ -645,6 +731,240 @@ input:checked+.slider:before{transform:translateX(18px)}
       </div>
     </div>
 
+    <!-- ══════════ PAGE: GESTIÓN COTIZACIONES ══════════ -->
+    <div id="page-gestion-cot" class="page">
+      <div class="card">
+        <!-- Filtros -->
+        <div class="filter-bar">
+          <div class="filter-search">
+            <i class="ti ti-search"></i>
+            <input type="text" id="gc-search" placeholder="Buscar por folio, cliente o empresa…" oninput="gcFiltrar()">
+          </div>
+          <select id="gc-estatus" onchange="gcFiltrar()">
+            <option value="">Todos los estados</option>
+            <option value="borrador">Borrador</option>
+            <option value="pendiente">Pendiente</option>
+            <option value="en_revision">En Revisión</option>
+            <option value="aprobada">Aprobada</option>
+            <option value="rechazada">Rechazada</option>
+          </select>
+          <select id="gc-tipo-venta" onchange="gcFiltrar()">
+            <option value="">Todo tipo de venta</option>
+            <option value="Mayoreo">Mayoreo</option>
+            <option value="Medio Mayoreo">Medio Mayoreo</option>
+            <option value="Menudeo">Menudeo</option>
+            <option value="Exportación">Exportación</option>
+            <option value="Directa">Directa</option>
+          </select>
+          <input type="date" id="gc-fecha-desde" onchange="gcFiltrar()" title="Desde">
+          <input type="date" id="gc-fecha-hasta" onchange="gcFiltrar()" title="Hasta">
+          <button class="btn-outline" style="font-size:12px;padding:8px 14px" onclick="gcLimpiarFiltros()"><i class="ti ti-filter-off"></i> Limpiar</button>
+        </div>
+        <!-- Tabla -->
+        <div style="overflow-x:auto">
+          <table>
+            <thead>
+              <tr>
+                <th style="cursor:pointer" onclick="gcOrdenar('folio')">Folio <i class="ti ti-selector" style="font-size:10px"></i></th>
+                <th style="cursor:pointer" onclick="gcOrdenar('created_at')">Fecha <i class="ti ti-selector" style="font-size:10px"></i></th>
+                <th>Cliente</th>
+                <th>Empresa</th>
+                <th>Tipo Cartón</th>
+                <th>Tipo Venta</th>
+                <th style="cursor:pointer" onclick="gcOrdenar('cantidad')">Cantidad <i class="ti ti-selector" style="font-size:10px"></i></th>
+                <th style="cursor:pointer" onclick="gcOrdenar('total')">Total <i class="ti ti-selector" style="font-size:10px"></i></th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="gc-tbody"><tr><td colspan="10" style="text-align:center;padding:40px;color:var(--text-muted)"><span class="spinner"></span></td></tr></tbody>
+          </table>
+        </div>
+        <div class="pagination">
+          <span class="pagination-info" id="gc-pag-info">—</span>
+          <div class="page-btns" id="gc-page-btns"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ PAGE: DETALLE COTIZACIÓN ══════════ -->
+    <div id="page-detalle-cot" class="page">
+      <!-- Header -->
+      <div class="quotation-header" style="margin-bottom:20px">
+        <div class="quotation-header-info">
+          <h2 id="dc-folio">Cotización —</h2>
+          <p id="dc-fecha-hora" style="color:var(--text-soft);font-size:12.5px"></p>
+        </div>
+        <div class="header-btns">
+          <button class="btn-outline" onclick="navTo('gestion-cot')"><i class="ti ti-arrow-left"></i> Regresar</button>
+          <button class="btn-outline" onclick="abrirEditarCotizacion()"><i class="ti ti-pencil"></i> Editar</button>
+          <button class="btn-primary" onclick="generarPDF()"><i class="ti ti-file-download"></i> Descargar PDF</button>
+        </div>
+      </div>
+      <div class="cot-detail-grid">
+        <!-- Columna principal -->
+        <div>
+          <!-- Info General -->
+          <div class="info-section">
+            <div class="info-section-header">
+              <div class="info-section-icon"><i class="ti ti-info-circle"></i></div>
+              <div class="info-section-title">Información General</div>
+            </div>
+            <div class="info-section-body">
+              <div class="info-grid">
+                <div class="info-field"><div class="f-label">Folio</div><div class="f-value" id="dc-info-folio">—</div></div>
+                <div class="info-field"><div class="f-label">Estado</div><div class="f-value" id="dc-info-estatus">—</div></div>
+                <div class="info-field"><div class="f-label">Fecha</div><div class="f-value" id="dc-info-fecha">—</div></div>
+                <div class="info-field"><div class="f-label">Hora</div><div class="f-value" id="dc-info-hora">—</div></div>
+                <div class="info-field"><div class="f-label">Tipo de Cotización</div><div class="f-value" id="dc-info-tipo">—</div></div>
+                <div class="info-field"><div class="f-label">Vigencia</div><div class="f-value" id="dc-info-vigencia">—</div></div>
+              </div>
+            </div>
+          </div>
+          <!-- Info Cliente -->
+          <div class="info-section">
+            <div class="info-section-header">
+              <div class="info-section-icon"><i class="ti ti-user"></i></div>
+              <div class="info-section-title">Información del Cliente</div>
+            </div>
+            <div class="info-section-body">
+              <div class="info-grid">
+                <div class="info-field"><div class="f-label">Nombre</div><div class="f-value" id="dc-cli-nombre">—</div></div>
+                <div class="info-field"><div class="f-label">Empresa</div><div class="f-value" id="dc-cli-empresa">—</div></div>
+                <div class="info-field"><div class="f-label">Teléfono</div><div class="f-value" id="dc-cli-telefono">—</div></div>
+                <div class="info-field"><div class="f-label">Correo</div><div class="f-value" id="dc-cli-correo">—</div></div>
+                <div class="info-field" style="grid-column:1/-1"><div class="f-label">Dirección</div><div class="f-value" id="dc-cli-direccion">—</div></div>
+              </div>
+            </div>
+          </div>
+          <!-- Info Producto -->
+          <div class="info-section">
+            <div class="info-section-header">
+              <div class="info-section-icon"><i class="ti ti-box"></i></div>
+              <div class="info-section-title">Información del Producto</div>
+            </div>
+            <div class="info-section-body">
+              <div class="info-grid">
+                <div class="info-field"><div class="f-label">Largo (cm)</div><div class="f-value" id="dc-largo">—</div></div>
+                <div class="info-field"><div class="f-label">Ancho (cm)</div><div class="f-value" id="dc-ancho">—</div></div>
+                <div class="info-field"><div class="f-label">Alto (cm)</div><div class="f-value" id="dc-alto">—</div></div>
+                <div class="info-field"><div class="f-label">Cantidad</div><div class="f-value" id="dc-cantidad">—</div></div>
+                <div class="info-field"><div class="f-label">Tipo de Cartón</div><div class="f-value" id="dc-carton">—</div></div>
+                <div class="info-field"><div class="f-label">Tipo de Venta</div><div class="f-value" id="dc-venta">—</div></div>
+              </div>
+            </div>
+          </div>
+          <!-- Observaciones -->
+          <div class="info-section" id="dc-notas-section" style="display:none">
+            <div class="info-section-header">
+              <div class="info-section-icon"><i class="ti ti-notes"></i></div>
+              <div class="info-section-title">Observaciones</div>
+            </div>
+            <div class="info-section-body"><p id="dc-notas" style="font-size:14px;color:var(--text-mid);line-height:1.6"></p></div>
+          </div>
+        </div>
+        <!-- Sidebar -->
+        <div class="cot-sidebar-sticky">
+          <div class="total-card-detail">
+            <div class="tcd-label">Total de la Cotización</div>
+            <div class="tcd-amount" id="dc-total-amount">$0.00</div>
+            <div class="tcd-rows">
+              <div class="tcd-row"><span>Precio Unitario</span><strong id="dc-precio-unit">—</strong></div>
+              <div class="tcd-row"><span>Subtotal</span><strong id="dc-subtotal">—</strong></div>
+              <div class="tcd-row"><span>IVA (16%)</span><strong id="dc-iva">—</strong></div>
+              <div class="tcd-row"><span>Costo Suaje</span><strong id="dc-suaje">—</strong></div>
+              <div class="tcd-row"><span>Costo Marco</span><strong id="dc-marco">—</strong></div>
+            </div>
+          </div>
+          <div class="cot-action-card">
+            <div class="cot-action-title">Acciones</div>
+            <button class="cot-action-btn primary" onclick="generarPDF()"><i class="ti ti-file-download"></i> Descargar PDF</button>
+            <button class="cot-action-btn" onclick="abrirEditarCotizacion()"><i class="ti ti-pencil"></i> Editar Cotización</button>
+            <button class="cot-action-btn" onclick="imprimirCotizacion()"><i class="ti ti-printer"></i> Imprimir</button>
+            <div style="height:1px;background:var(--border);margin:10px 0"></div>
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-soft);margin-bottom:10px">Cambiar Estado</div>
+            <select class="estatus-select" id="dc-estatus-select" onchange="cambiarEstatusCotizacion(this.value)" style="width:100%;margin-bottom:0">
+              <option value="borrador">Borrador</option>
+              <option value="pendiente">Pendiente</option>
+              <option value="en_revision">En Revisión</option>
+              <option value="aprobada">Aprobada</option>
+              <option value="rechazada">Rechazada</option>
+            </select>
+            <div style="height:1px;background:var(--border);margin:10px 0"></div>
+            <button class="cot-action-btn danger" onclick="abrirModalEliminarCotDetalle()"><i class="ti ti-trash"></i> Eliminar Cotización</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ MODAL: EDITAR COTIZACIÓN ══════════ -->
+    <div class="modal-overlay" id="edit-cot-modal">
+      <div class="modal modal-edit">
+        <div class="modal-title">Editar Cotización</div>
+        <div class="modal-subtitle" id="edit-cot-subtitle">Folio: —</div>
+        <div class="modal-grid">
+          <div>
+            <label>Largo (cm)</label>
+            <input type="number" id="edit-largo" min="0" step="0.01" oninput="recalcularEdicion()">
+          </div>
+          <div>
+            <label>Ancho (cm)</label>
+            <input type="number" id="edit-ancho" min="0" step="0.01" oninput="recalcularEdicion()">
+          </div>
+          <div>
+            <label>Alto (cm)</label>
+            <input type="number" id="edit-alto" min="0" step="0.01" oninput="recalcularEdicion()">
+          </div>
+          <div>
+            <label>Cantidad</label>
+            <input type="number" id="edit-cantidad" min="1" oninput="recalcularEdicion()">
+          </div>
+          <div>
+            <label>Tipo de Cartón</label>
+            <select id="edit-carton" onchange="recalcularEdicion()">
+              <option value="11">Sencillo — $11/m²</option>
+              <option value="14">Micro — $14/m²</option>
+              <option value="17">Doble Pared — $17/m²</option>
+            </select>
+          </div>
+          <div>
+            <label>Tipo de Venta</label>
+            <select id="edit-venta" onchange="recalcularEdicion()">
+              <option value="1.7">Mayoreo ×1.7</option>
+              <option value="2.5">Medio Mayoreo ×2.5</option>
+              <option value="3">Menudeo ×3.0</option>
+              <option value="2.2">Exportación ×2.2</option>
+              <option value="1.9">Directa ×1.9</option>
+            </select>
+          </div>
+          <div>
+            <label>Costo Suaje</label>
+            <input type="number" id="edit-suaje" min="0" step="0.01" oninput="recalcularEdicion()">
+          </div>
+          <div>
+            <label>Costo Marco</label>
+            <input type="number" id="edit-marco" min="0" step="0.01" oninput="recalcularEdicion()">
+          </div>
+          <div class="modal-full">
+            <label>Observaciones</label>
+            <textarea id="edit-notas" rows="3"></textarea>
+          </div>
+          <div class="modal-full" style="background:var(--brown-ultra-pale);border-radius:var(--radius-sm);padding:14px">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-soft);margin-bottom:10px">Vista previa del precio</div>
+            <div style="display:flex;gap:20px;flex-wrap:wrap">
+              <div><div style="font-size:11px;color:var(--text-soft)">Precio unitario</div><div style="font-size:16px;font-weight:700;color:var(--brown-dark)" id="edit-prev-unit">$0.00</div></div>
+              <div><div style="font-size:11px;color:var(--text-soft)">Subtotal</div><div style="font-size:16px;font-weight:700;color:var(--text-dark)" id="edit-prev-sub">$0.00</div></div>
+              <div><div style="font-size:11px;color:var(--text-soft)">Total c/IVA</div><div style="font-size:18px;font-weight:700;color:var(--brown-dark)" id="edit-prev-total">$0.00</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-edit-btns">
+          <button class="btn-secondary" onclick="cerrarEditarCotizacion()"><i class="ti ti-x"></i> Cancelar</button>
+          <button class="btn-primary" onclick="guardarEdicionCotizacion()"><i class="ti ti-device-floppy"></i> Guardar Cambios</button>
+        </div>
+      </div>
+    </div>
+
     <!-- ══════════ PAGE: PLACEHOLDER ══════════ -->
     <div id="page-ordenes" class="page">
       <div class="page-title">Órdenes</div>
@@ -695,6 +1015,8 @@ let cliPagina = 1;
 // ═══════════════════════════════════════════════════════
 const headerTitles = {
   cotizaciones:     'Cotizaciones',
+  'gestion-cot':    'Gestión de Cotizaciones',
+  'detalle-cot':    'Detalle de Cotización',
   'nueva-cot':      'Nueva Cotización',
   clientes:         'Clientes',
   'nuevo-cliente':  'Nuevo Cliente',
@@ -704,9 +1026,11 @@ const headerTitles = {
   produccion:       'Producción',
 };
 const headerCTAs = {
-  cotizaciones:  { label:'Nueva Cotización', icon:'ti-plus', action:"navTo('nueva-cot')" },
-  clientes:      { label:'Nuevo Cliente', icon:'ti-user-plus', action:"navTo('nuevo-cliente')" },
-  'nueva-cot':   null,
+  cotizaciones:   { label:'Nueva Cotización', icon:'ti-plus', action:"navTo('nueva-cot')" },
+  'gestion-cot':  { label:'Nueva Cotización', icon:'ti-plus', action:"navTo('nueva-cot')" },
+  clientes:       { label:'Nuevo Cliente', icon:'ti-user-plus', action:"navTo('nuevo-cliente')" },
+  'nueva-cot':    null,
+  'detalle-cot':  null,
 };
 
 function navTo(page) {
@@ -732,12 +1056,18 @@ function navTo(page) {
 
   // Cargar datos según página
   if (page === 'cotizaciones') cargarCotizaciones(1);
+  if (page === 'gestion-cot') cargarGestionCotizaciones(1);
   if (page === 'clientes') cargarClientes(1);
   if (page === 'nueva-cot') { calculate(); limpiarFormCotizacion(); }
 }
 
 function onGlobalSearch(val) {
   if (currentPage === 'cotizaciones') cargarCotizaciones(1, val);
+  if (currentPage === 'gestion-cot') {
+    const inp = document.getElementById('gc-search');
+    if (inp) inp.value = val;
+    gcFiltrar();
+  }
   if (currentPage === 'clientes') cargarClientes(1, val);
 }
 
@@ -1123,10 +1453,11 @@ function calculate() {
   const sp      = document.getElementById('screen-print').checked;
 
   let unit = currentQuotationType === 'plano'
-    ? (((largo+2)*(ancho +2))*1.3*cboard/10000)*stype
-    : (((largo+ancho)*2+5)*((ancho+alto)+5)*1.3*cboard/10000)*stype;
+    ? (((largo + 2)*(ancho + 2))*1.3*cboard/10000)*stype
+    : (((((largo+ancho)+5)*2)*((ancho+alto)+5))*1.3*cboard/10000)*stype;
 
   if (sp) unit += paint;
+  const subtotal = (unit*qty) + dieCut + frame;
   const iva      = subtotal*0.16;
   const total    = subtotal + iva;
 
@@ -1155,7 +1486,7 @@ async function _saveCotizacion(estatus = 'pendiente') {
 
   let unit = currentQuotationType === 'plano'
     ? ((largo*ancho)*1.3*cboard/10000)*stype
-    : (((largo+ancho)*2+5)*((ancho+alto)+5)*1.3*cboard/10000)*stype;
+    : ((((largo+ancho)*2)+(ancho*alto))*1.3*cboard/10000)*stype;
   if (sp) unit += paint;
   const sub  = (unit*qty)+dieCut+frame;
   const iva  = sub*0.16;
@@ -1201,7 +1532,580 @@ async function guardarYGenerarPDF() {
 }
 
 function verDetalleCotizacion(id) {
-  showToast('Vista de cotización — próximamente');
+  abrirDetalleCotizacion(id);
+}
+
+// ═══════════════════════════════════════════════════════
+//  GESTIÓN DE COTIZACIONES — módulo completo
+// ═══════════════════════════════════════════════════════
+let gcPagina = 1;
+let gcOrdenCol = 'created_at';
+let gcOrdenDir = 'desc';
+let gcTodas = [];
+let currentDetalleCotId = null;
+let currentDetalleCotData = null;
+
+async function cargarGestionCotizaciones(pagina = 1) {
+  gcPagina = pagina;
+  const tbody = document.getElementById('gc-tbody');
+  if (!tbody) return;
+  tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;padding:40px;color:var(--text-muted)"><span class="spinner"></span> Cargando…</td></tr>';
+  try {
+    const buscar  = document.getElementById('gc-search')?.value || '';
+    const estatus = document.getElementById('gc-estatus')?.value || '';
+    const params  = new URLSearchParams({ pagina, limite: 20, buscar, estatus });
+    const res  = await fetch(`${API}/cotizaciones?${params}`);
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.mensaje);
+    gcTodas = data.datos.cotizaciones;
+    const pag = data.datos.paginacion;
+    gcRenderTabla(gcTodas);
+    const info = document.getElementById('gc-pag-info');
+    if (info) info.textContent = `Mostrando ${gcTodas.length} de ${pag.total} cotizaciones`;
+    renderPaginacion('gc-page-btns', pag.total, pagina, 20, cargarGestionCotizaciones);
+  } catch(e) {
+    if (tbody) tbody.innerHTML = `<tr><td colspan="10" style="text-align:center;padding:30px;color:var(--danger)">${e.message}</td></tr>`;
+  }
+}
+
+function gcFiltrar() {
+  gcPagina = 1;
+  cargarGestionCotizaciones(1);
+}
+
+function gcLimpiarFiltros() {
+  document.getElementById('gc-search').value = '';
+  document.getElementById('gc-estatus').value = '';
+  document.getElementById('gc-tipo-venta').value = '';
+  document.getElementById('gc-fecha-desde').value = '';
+  document.getElementById('gc-fecha-hasta').value = '';
+  cargarGestionCotizaciones(1);
+}
+
+function gcOrdenar(col) {
+  if (gcOrdenCol === col) gcOrdenDir = gcOrdenDir === 'asc' ? 'desc' : 'asc';
+  else { gcOrdenCol = col; gcOrdenDir = 'asc'; }
+  const sorted = [...gcTodas].sort((a,b) => {
+    let va = a[col], vb = b[col];
+    if (typeof va === 'string') va = va.toLowerCase(), vb = vb.toLowerCase();
+    return gcOrdenDir === 'asc' ? (va > vb ? 1 : -1) : (va < vb ? 1 : -1);
+  });
+  gcRenderTabla(sorted);
+}
+
+const estatusLabel = {
+  borrador:'Borrador', pendiente:'Pendiente', en_revision:'En Revisión',
+  aprobada:'Aprobada', rechazada:'Rechazada'
+};
+
+function gcRenderTabla(rows) {
+  const tipoVentaFiltro = document.getElementById('gc-tipo-venta')?.value || '';
+  const desdeStr = document.getElementById('gc-fecha-desde')?.value;
+  const hastaStr = document.getElementById('gc-fecha-hasta')?.value;
+  let list = rows;
+  if (tipoVentaFiltro) list = list.filter(c => (c.tipo_venta||'').includes(tipoVentaFiltro));
+  if (desdeStr) list = list.filter(c => new Date(c.created_at) >= new Date(desdeStr));
+  if (hastaStr) list = list.filter(c => new Date(c.created_at) <= new Date(hastaStr + 'T23:59:59'));
+  const tbody = document.getElementById('gc-tbody');
+  if (!tbody) return;
+  if (!list.length) {
+    tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;padding:40px;color:var(--text-muted)">Sin resultados</td></tr>';
+    return;
+  }
+  tbody.innerHTML = list.map(c => {
+    const fecha = new Date(c.created_at);
+    const fechaStr = fecha.toLocaleDateString('es-MX', {day:'2-digit',month:'short',year:'numeric'});
+    const ini = (c.cliente_contacto||c.cliente_empresa||'?').charAt(0).toUpperCase();
+    const est = c.estatus || 'pendiente';
+    return `<tr>
+      <td><span class="id-badge">${c.folio||'—'}</span></td>
+      <td class="date-cell">${fechaStr}</td>
+      <td>
+        <div class="customer-cell">
+          <div class="cust-avatar">${ini}</div>
+          <div>
+            <div style="font-weight:500;font-size:13px">${c.cliente_contacto||'—'}</div>
+          </div>
+        </div>
+      </td>
+      <td style="font-size:13px;color:var(--text-soft)">${c.cliente_empresa||'—'}</td>
+      <td style="font-size:13px">${c.tipo_carton||'—'}</td>
+      <td style="font-size:13px">${c.tipo_venta||'—'}</td>
+      <td style="font-size:13px;text-align:right">${(c.cantidad||0).toLocaleString('es-MX')}</td>
+      <td class="amount">${fmtMXN(c.total)}</td>
+      <td><span class="badge badge-${est}">${estatusLabel[est]||est}</span></td>
+      <td>
+        <div class="action-btns">
+          <button class="act-btn" title="Ver detalle" onclick="abrirDetalleCotizacion(${c.id})"><i class="ti ti-eye"></i></button>
+          <button class="act-btn" title="Editar" onclick="abrirDetalleCotizacion(${c.id},true)"><i class="ti ti-pencil"></i></button>
+          <button class="act-btn" title="PDF" onclick="generarPDFById(${c.id})"><i class="ti ti-file-download"></i></button>
+          <button class="act-btn del" title="Eliminar" onclick="abrirModalEliminarCot(${c.id},'${c.folio||''}')"><i class="ti ti-trash"></i></button>
+        </div>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+// ── Detalle Cotización ──
+async function abrirDetalleCotizacion(id, editarDespues = false) {
+  navTo('detalle-cot');
+  currentDetalleCotId = id;
+  try {
+    // Obtener cotización
+    const res  = await fetch(`${API}/cotizaciones/${id}`);
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.mensaje);
+    const c = data.datos;
+    currentDetalleCotData = c;
+
+    // Obtener cliente completo para más info
+    let cli = {};
+    try {
+      const rc = await fetch(`${API}/clientes/${c.cliente_id}`);
+      const dc = await rc.json();
+      if (dc.ok) cli = dc.datos;
+    } catch(e) {}
+    currentDetalleCotData._cli = cli;
+
+    // Header
+    document.getElementById('dc-folio').textContent = c.folio || '—';
+    const dtFecha = new Date(c.created_at);
+    document.getElementById('dc-fecha-hora').textContent =
+      dtFecha.toLocaleDateString('es-MX',{weekday:'long',year:'numeric',month:'long',day:'numeric'}) +
+      ' · ' + dtFecha.toLocaleTimeString('es-MX',{hour:'2-digit',minute:'2-digit'});
+
+    // Info general
+    document.getElementById('dc-info-folio').textContent = c.folio || '—';
+    document.getElementById('dc-info-estatus').innerHTML =
+      `<span class="badge badge-${c.estatus}">${estatusLabel[c.estatus]||c.estatus}</span>`;
+    document.getElementById('dc-info-fecha').textContent =
+      dtFecha.toLocaleDateString('es-MX',{day:'2-digit',month:'long',year:'numeric'});
+    document.getElementById('dc-info-hora').textContent =
+      dtFecha.toLocaleTimeString('es-MX',{hour:'2-digit',minute:'2-digit'});
+    document.getElementById('dc-info-tipo').textContent =
+      c.tipo_cotizacion === 'plano' ? 'Por Plano' : 'Por Medidas';
+    document.getElementById('dc-info-vigencia').textContent =
+      (c.vigencia_dias||15) + ' días';
+
+    // Cliente
+    document.getElementById('dc-cli-nombre').textContent  = cli.nombre ? `${cli.nombre} ${cli.apellido}` : (c.cliente_contacto||'—');
+    document.getElementById('dc-cli-empresa').textContent = cli.empresa || c.cliente_empresa || '—';
+    document.getElementById('dc-cli-telefono').textContent= cli.telefono || '—';
+    document.getElementById('dc-cli-correo').textContent  = cli.correo || '—';
+    document.getElementById('dc-cli-direccion').textContent =
+      [cli.direccion, cli.ciudad, cli.estado, cli.codigo_postal].filter(Boolean).join(', ') || '—';
+
+    // Producto
+    document.getElementById('dc-largo').textContent = c.largo ? c.largo + ' cm' : '—';
+    document.getElementById('dc-ancho').textContent = c.ancho ? c.ancho + ' cm' : '—';
+    document.getElementById('dc-alto').textContent  = (c.alto && parseFloat(c.alto)>0) ? c.alto + ' cm' : 'N/A';
+    document.getElementById('dc-cantidad').textContent = (c.cantidad||0).toLocaleString('es-MX') + ' pzas';
+    document.getElementById('dc-carton').textContent = c.tipo_carton_nombre || '—';
+    document.getElementById('dc-venta').textContent  = c.tipo_venta_nombre || '—';
+
+    // Totales sidebar
+    document.getElementById('dc-total-amount').textContent = fmtMXN(c.total);
+    document.getElementById('dc-precio-unit').textContent  = fmtMXN(c.precio_unitario);
+    document.getElementById('dc-subtotal').textContent     = fmtMXN(c.subtotal);
+    document.getElementById('dc-iva').textContent          = fmtMXN(c.iva);
+    document.getElementById('dc-suaje').textContent        = fmtMXN(c.costo_suaje);
+    document.getElementById('dc-marco').textContent        = fmtMXN(c.costo_marco);
+
+    // Estatus select
+    document.getElementById('dc-estatus-select').value = c.estatus || 'pendiente';
+
+    // Notas
+    const notasSec = document.getElementById('dc-notas-section');
+    if (c.notas) {
+      document.getElementById('dc-notas').textContent = c.notas;
+      notasSec.style.display = '';
+    } else {
+      notasSec.style.display = 'none';
+    }
+
+    if (editarDespues) setTimeout(abrirEditarCotizacion, 200);
+  } catch(e) {
+    showToast('Error al cargar cotización: ' + e.message, 'error');
+  }
+}
+
+function renderDesglose(c) {
+  const largo  = parseFloat(c.largo)||0;
+  const ancho  = parseFloat(c.ancho)||0;
+  const alto   = parseFloat(c.alto)||0;
+  const cartonCosto = parseFloat(c.precio_unitario) > 0 ? detectarCostoCarton(c) : 0;
+  const ventaMult   = detectarMargen(c);
+  const qty    = parseInt(c.cantidad)||1;
+  const tipo   = c.tipo_cotizacion;
+
+  let area, perimetro, pasos;
+
+  if (tipo === 'plano') {
+    area = largo * ancho;
+    pasos = [
+      { label:'Largo', value: largo + ' cm' },
+      { label:'Ancho', value: ancho + ' cm' },
+      { label:'Área (Largo × Ancho)', value: area.toFixed(2) + ' cm²', hl:true },
+      { label:'× Factor 1.3', value: (area*1.3).toFixed(2) },
+      { label:'× Costo cartón ('+fmtMXN(cartonCosto)+'/m²)', value: (area*1.3*cartonCosto).toFixed(2) },
+      { label:'÷ 10,000 (cm² → m²)', value: (area*1.3*cartonCosto/10000).toFixed(4), hl:true },
+      { label:'× Margen de venta ('+ventaMult+')', value: fmtMXN(c.precio_unitario) },
+    ];
+  } else {
+    const paso1 = (largo + ancho + 5) * 2;
+    const paso2 = ancho + alto + 5;
+    area = paso1 * paso2;
+    pasos = [
+      { label:'Largo', value: largo + ' cm' },
+      { label:'Ancho', value: ancho + ' cm' },
+      { label:'Alto', value: alto + ' cm' },
+      { label:'(Largo + Ancho + 5) × 2', value: paso1.toFixed(2) + ' cm', hl:true },
+      { label:'(Ancho + Alto + 5)', value: paso2.toFixed(2) + ' cm' },
+      { label:'Área resultante', value: area.toFixed(2) + ' cm²', hl:true },
+      { label:'× Factor 1.3', value: (area*1.3).toFixed(2) },
+      { label:'× Costo cartón ('+fmtMXN(cartonCosto)+'/m²)', value: (area*1.3*cartonCosto).toFixed(2) },
+      { label:'÷ 10,000 (cm² → m²)', value: (area*1.3*cartonCosto/10000).toFixed(4), hl:true },
+      { label:'× Margen de venta ('+ventaMult+')', value: fmtMXN(c.precio_unitario) },
+    ];
+  }
+
+  pasos.push(
+    { label:'Precio Unitario', value: fmtMXN(c.precio_unitario), hl:true },
+    { label:'× Cantidad ('+qty.toLocaleString('es-MX')+')', value: fmtMXN(parseFloat(c.precio_unitario)*qty) },
+  );
+  if (parseFloat(c.costo_suaje)>0) pasos.push({ label:'+ Costo Suaje', value: fmtMXN(c.costo_suaje) });
+  if (parseFloat(c.costo_marco)>0) pasos.push({ label:'+ Costo Marco', value: fmtMXN(c.costo_marco) });
+  pasos.push(
+    { label:'Subtotal', value: fmtMXN(c.subtotal), hl:true },
+    { label:'+ IVA 16%', value: fmtMXN(c.iva) },
+  );
+
+  const container = document.getElementById('dc-calc-steps');
+  container.innerHTML = pasos.map((p,i) =>
+    `<div class="calc-step ${p.hl?'highlight':''}">
+      <span class="cs-label">${i>0?'<span class="cs-arrow">→</span>':''} ${p.label}</span>
+      <span class="cs-value">${p.value}</span>
+    </div>`
+  ).join('') +
+  `<div class="calc-step total-step">
+    <span class="cs-label" style="color:#fff;font-weight:700;font-size:15px">TOTAL</span>
+    <span class="cs-value" style="color:#fff;font-weight:700;font-size:17px">${fmtMXN(c.total)}</span>
+  </div>`;
+}
+
+function detectarCostoCarton(c) {
+  const nombre = (c.tipo_carton_nombre||'').toLowerCase();
+  if (nombre.includes('doble')) return 17;
+  if (nombre.includes('micro')) return 14;
+  return 11;
+}
+function detectarMargen(c) {
+  const nombre = (c.tipo_venta_nombre||'').toLowerCase();
+  if (nombre.includes('medio')) return 2.5;
+  if (nombre.includes('menudeo')) return 3.0;
+  if (nombre.includes('exporta')) return 2.2;
+  if (nombre.includes('directa')) return 1.9;
+  return 1.7;
+}
+
+async function cambiarEstatusCotizacion(estatus) {
+  if (!currentDetalleCotId) return;
+  try {
+    const res = await fetch(`${API}/cotizaciones/${currentDetalleCotId}/estatus`, {
+      method:'PATCH', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ estatus })
+    });
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.mensaje);
+    showToast('Estado actualizado a: ' + (estatusLabel[estatus]||estatus), 'success');
+    document.getElementById('dc-info-estatus').innerHTML =
+      `<span class="badge badge-${estatus}">${estatusLabel[estatus]||estatus}</span>`;
+    if (currentDetalleCotData) currentDetalleCotData.estatus = estatus;
+  } catch(e) {
+    showToast('Error: ' + e.message, 'error');
+  }
+}
+
+function abrirModalEliminarCotDetalle() {
+  if (!currentDetalleCotId || !currentDetalleCotData) return;
+  abrirModalEliminarCot(currentDetalleCotId, currentDetalleCotData.folio);
+}
+
+// ── Editar Cotización ──
+function abrirEditarCotizacion() {
+  if (!currentDetalleCotData) return;
+  const c = currentDetalleCotData;
+  document.getElementById('edit-cot-subtitle').textContent = 'Folio: ' + (c.folio||'—');
+  document.getElementById('edit-largo').value    = c.largo||0;
+  document.getElementById('edit-ancho').value    = c.ancho||0;
+  document.getElementById('edit-alto').value     = c.alto||0;
+  document.getElementById('edit-cantidad').value = c.cantidad||1;
+  document.getElementById('edit-carton').value   = String(detectarCostoCarton(c));
+  document.getElementById('edit-venta').value    = String(detectarMargen(c));
+  document.getElementById('edit-suaje').value    = c.costo_suaje||0;
+  document.getElementById('edit-marco').value    = c.costo_marco||0;
+  document.getElementById('edit-notas').value    = c.notas||'';
+  recalcularEdicion();
+  document.getElementById('edit-cot-modal').classList.add('show');
+}
+
+function cerrarEditarCotizacion() {
+  document.getElementById('edit-cot-modal').classList.remove('show');
+}
+
+function recalcularEdicion() {
+  const largo  = parseFloat(document.getElementById('edit-largo').value)||0;
+  const ancho  = parseFloat(document.getElementById('edit-ancho').value)||0;
+  const alto   = parseFloat(document.getElementById('edit-alto').value)||0;
+  const carton = parseFloat(document.getElementById('edit-carton').value)||11;
+  const venta  = parseFloat(document.getElementById('edit-venta').value)||1.7;
+  const qty    = parseFloat(document.getElementById('edit-cantidad').value)||1;
+  const suaje  = parseFloat(document.getElementById('edit-suaje').value)||0;
+  const marco  = parseFloat(document.getElementById('edit-marco').value)||0;
+  const tipo   = currentDetalleCotData?.tipo_cotizacion || 'plano';
+
+  let unit = tipo === 'plano'
+    ? ((largo*ancho)*1.3*carton/10000)*venta
+    : (((largo+ancho+5)*2*(ancho+alto+5))*1.3*carton/10000)*venta;
+
+  const sub   = (unit*qty)+suaje+marco;
+  const total = sub * 1.16;
+
+  document.getElementById('edit-prev-unit').textContent  = fmtMXN(unit);
+  document.getElementById('edit-prev-sub').textContent   = fmtMXN(sub);
+  document.getElementById('edit-prev-total').textContent = fmtMXN(total);
+}
+
+async function guardarEdicionCotizacion() {
+  if (!currentDetalleCotId || !currentDetalleCotData) return;
+  const largo  = parseFloat(document.getElementById('edit-largo').value)||0;
+  const ancho  = parseFloat(document.getElementById('edit-ancho').value)||0;
+  const alto   = parseFloat(document.getElementById('edit-alto').value)||0;
+  const carton = parseFloat(document.getElementById('edit-carton').value)||11;
+  const venta  = parseFloat(document.getElementById('edit-venta').value)||1.7;
+  const qty    = parseInt(document.getElementById('edit-cantidad').value)||1;
+  const suaje  = parseFloat(document.getElementById('edit-suaje').value)||0;
+  const marco  = parseFloat(document.getElementById('edit-marco').value)||0;
+  const notas  = document.getElementById('edit-notas').value;
+  const tipo   = currentDetalleCotData.tipo_cotizacion || 'plano';
+
+  let unit = tipo === 'plano'
+    ? ((largo*ancho)*1.3*carton/10000)*venta
+    : (((largo+ancho+5)*2*(ancho+alto+5))*1.3*carton/10000)*venta;
+  const sub   = (unit*qty)+suaje+marco;
+  const iva   = sub*0.16;
+  const total = sub+iva;
+
+  const cartonMap = {11:1, 14:2, 17:3};
+  const ventaMap  = {1.7:1, 2.5:2, 3:3, 2.2:4, 1.9:5};
+
+  try {
+    // Usamos PUT con todos los campos
+    const payload = {
+      clienteId: currentDetalleCotData.cliente_id,
+      tipoCotizacion: tipo,
+      tipoCartonId: cartonMap[carton]||1,
+      tipoVentaId:  ventaMap[venta]||1,
+      largo, ancho, alto, cantidad: qty,
+      costoSuaje: suaje, costoMarco: marco,
+      costoPintura: currentDetalleCotData.costo_pintura||0,
+      incluyeSerigrafia: currentDetalleCotData.incluye_serigrafia||0,
+      precioUnitario: unit, subtotal: sub, iva, total,
+      estatus: currentDetalleCotData.estatus || 'pendiente',
+      notas
+    };
+    // Intentar PATCH/PUT si existe endpoint, si no, DELETE + POST
+    const res = await fetch(`${API}/cotizaciones/${currentDetalleCotId}`, {
+      method: 'PUT',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+    if (!data.ok && res.status === 404) {
+      // Endpoint PUT no existe, mostrar mensaje informativo
+      showToast('ℹ️ Guarda los cambios desde el backend. Ver README.', 'warning');
+      cerrarEditarCotizacion();
+      return;
+    }
+    if (!data.ok) throw new Error(data.mensaje||'Error desconocido');
+    showToast('✅ Cotización actualizada correctamente', 'success');
+    cerrarEditarCotizacion();
+    await abrirDetalleCotizacion(currentDetalleCotId);
+  } catch(e) {
+    // Si el backend no tiene PUT /cotizaciones/:id aún,
+    // actualizamos la vista local mientras el user agrega el endpoint
+    showToast('ℹ️ ' + e.message + ' — Agrega PUT /api/cotizaciones/:id en server.js', 'error');
+  }
+}
+
+// ── Generar PDF ──
+function fmtMXN(n) {
+  return '$ ' + (parseFloat(n)||0).toLocaleString('es-MX',{minimumFractionDigits:2,maximumFractionDigits:2});
+}
+
+function generarPDF() {
+  if (!currentDetalleCotData) return;
+  generarPDFDesdeData(currentDetalleCotData);
+}
+
+async function generarPDFById(id) {
+  try {
+    const res  = await fetch(`${API}/cotizaciones/${id}`);
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.mensaje);
+    // Obtener cliente
+    let cli = {};
+    try {
+      const rc = await fetch(`${API}/clientes/${data.datos.cliente_id}`);
+      const dc = await rc.json();
+      if (dc.ok) cli = dc.datos;
+    } catch(e){}
+    generarPDFDesdeData({ ...data.datos, _cli: cli });
+  } catch(e) {
+    showToast('Error al generar PDF: ' + e.message, 'error');
+  }
+}
+
+function generarPDFDesdeData(c) {
+  const cli = c._cli || {};
+  const dtFecha = new Date(c.created_at);
+  const fechaStr = dtFecha.toLocaleDateString('es-MX',{day:'2-digit',month:'long',year:'numeric'});
+  const horaStr  = dtFecha.toLocaleTimeString('es-MX',{hour:'2-digit',minute:'2-digit'});
+  const nombre   = cli.nombre ? `${cli.nombre} ${cli.apellido}` : (c.cliente_contacto||'—');
+  const empresa  = cli.empresa || c.cliente_empresa || '—';
+  const dir      = [cli.direccion, cli.ciudad, cli.estado].filter(Boolean).join(', ') || '—';
+
+  // Desglose
+  const largo  = parseFloat(c.largo)||0;
+  const ancho  = parseFloat(c.ancho)||0;
+  const alto   = parseFloat(c.alto)||0;
+  const qty    = parseInt(c.cantidad)||1;
+
+  const w = window.open('','_blank','width=800,height=900');
+  w.document.write(`<!DOCTYPE html><html lang="es"><head>
+  <meta charset="UTF-8">
+  <title>Cotización ${c.folio||''}</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',Arial,sans-serif;color:#2C1A0E;background:#fff;padding:0}
+    .page{max-width:800px;margin:0 auto;padding:40px 48px}
+    /* Header */
+    .pdf-header{display:flex;align-items:flex-start;justify-content:space-between;padding-bottom:24px;border-bottom:3px solid #5C2D1E;margin-bottom:28px}
+    .co-name{font-size:26px;font-weight:800;color:#5C2D1E;letter-spacing:-.5px}
+    .co-sub{font-size:11px;color:#9B7B6A;letter-spacing:.12em;text-transform:uppercase;margin-top:2px}
+    .folio-box{text-align:right}
+    .folio-num{font-size:22px;font-weight:700;color:#5C2D1E}
+    .folio-label{font-size:10px;color:#9B7B6A;text-transform:uppercase;letter-spacing:.1em}
+    .folio-date{font-size:12px;color:#6B4226;margin-top:4px}
+    /* Secciones */
+    .section{margin-bottom:24px}
+    .section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#9B7B6A;border-bottom:1px solid #E8D8CC;padding-bottom:6px;margin-bottom:14px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px}
+    .field .f-label{font-size:10px;color:#9B7B6A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+    .field .f-value{font-size:13px;color:#2C1A0E;font-weight:500}
+    /* Tabla */
+    table{width:100%;border-collapse:collapse}
+    th{background:#F2E8DF;padding:9px 12px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#5C2D1E}
+    td{padding:9px 12px;font-size:13px;border-bottom:1px solid #F2E8DF}
+    tr:last-child td{border-bottom:none}
+    .text-right{text-align:right}
+    /* Total */
+    .total-box{background:#5C2D1E;border-radius:12px;padding:24px 28px;margin:24px 0;text-align:center;color:#fff}
+    .total-label{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.65);margin-bottom:8px}
+    .total-amount{font-size:38px;font-weight:800;color:#fff;letter-spacing:-1px}
+    .total-currency{font-size:14px;color:rgba(255,255,255,.7);margin-top:4px}
+    .sub-totals{display:flex;justify-content:center;gap:28px;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.2)}
+    .st-item{text-align:center}
+    .st-label{font-size:9px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.06em}
+    .st-value{font-size:13px;font-weight:600;color:#fff;margin-top:2px}
+    /* Desglose */
+    .desglose-table th{background:#FDFAF7;color:#5C2D1E}
+    .desglose-table td:last-child{text-align:right;font-weight:600}
+    /* Notas */
+    .notes-box{background:#FDFAF7;border:1px solid #E8D8CC;border-radius:8px;padding:14px;font-size:13px;color:#6B4226;line-height:1.6}
+    /* Footer */
+    .pdf-footer{margin-top:32px;padding-top:18px;border-top:2px solid #E8D8CC;display:flex;justify-content:space-between;align-items:center}
+    .footer-msg{font-size:13px;font-weight:600;color:#5C2D1E;font-style:italic}
+    .footer-folio{font-size:10px;color:#9B7B6A;text-align:right}
+    @media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  </style>
+</head><body>
+<div class="page">
+  <!-- Header -->
+  <div class="pdf-header">
+    <div>
+      <div class="co-name">📦 Ponlo en Caja</div>
+      <div class="co-sub">Sistema Industrial de Empaques</div>
+    </div>
+    <div class="folio-box">
+      <div class="folio-label">Cotización</div>
+      <div class="folio-num">${c.folio||'—'}</div>
+      <div class="folio-date">${fechaStr} · ${horaStr}</div>
+    </div>
+  </div>
+
+  <!-- Cliente -->
+  <div class="section">
+    <div class="section-title">Datos del Cliente</div>
+    <div class="two-col">
+      <div class="field"><div class="f-label">Nombre</div><div class="f-value">${nombre}</div></div>
+      <div class="field"><div class="f-label">Empresa</div><div class="f-value">${empresa}</div></div>
+      <div class="field"><div class="f-label">Teléfono</div><div class="f-value">${cli.telefono||'—'}</div></div>
+      <div class="field"><div class="f-label">Correo</div><div class="f-value">${cli.correo||'—'}</div></div>
+      <div class="field" style="grid-column:1/-1"><div class="f-label">Dirección</div><div class="f-value">${dir}</div></div>
+    </div>
+  </div>
+
+  <!-- Resumen Cotización -->
+  <div class="section">
+    <div class="section-title">Resumen de la Cotización</div>
+    <table>
+      <thead><tr><th>Concepto</th><th class="text-right">Valor</th></tr></thead>
+      <tbody>
+        <tr><td>Largo</td><td class="text-right">${largo} cm</td></tr>
+        <tr><td>Ancho</td><td class="text-right">${ancho} cm</td></tr>
+        <tr><td>Alto</td><td class="text-right">${alto>0?alto+' cm':'N/A'}</td></tr>
+        <tr><td>Tipo de Cartón</td><td class="text-right">${c.tipo_carton_nombre||'—'}</td></tr>
+        <tr><td>Tipo de Venta</td><td class="text-right">${c.tipo_venta_nombre||'—'}</td></tr>
+        <tr><td>Cantidad</td><td class="text-right">${qty.toLocaleString('es-MX')} pzas</td></tr>
+        <tr><td>Precio Unitario</td><td class="text-right">${fmtMXN(c.precio_unitario)}</td></tr>
+        ${parseFloat(c.costo_suaje)>0?`<tr><td>Costo Suaje</td><td class="text-right">${fmtMXN(c.costo_suaje)}</td></tr>`:''}
+        ${parseFloat(c.costo_marco)>0?`<tr><td>Costo Marco</td><td class="text-right">${fmtMXN(c.costo_marco)}</td></tr>`:''}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Total -->
+  <div class="total-box">
+    <div class="total-label">Total de la Cotización</div>
+    <div class="total-amount">${fmtMXN(c.total)}</div>
+    <div class="total-currency">MXN (IVA incluido)</div>
+    <div class="sub-totals">
+      <div class="st-item"><div class="st-label">Subtotal</div><div class="st-value">${fmtMXN(c.subtotal)}</div></div>
+      <div class="st-item"><div class="st-label">IVA 16%</div><div class="st-value">${fmtMXN(c.iva)}</div></div>
+      <div class="st-item"><div class="st-label">Precio/u</div><div class="st-value">${fmtMXN(c.precio_unitario)}</div></div>
+    </div>
+  </div>
+
+  ${c.notas?`<div class="section"><div class="section-title">Observaciones</div><div class="notes-box">${c.notas}</div></div>`:''}
+
+  <!-- Footer -->
+  <div class="pdf-footer">
+    <div class="footer-msg">¡Gracias por su preferencia!</div>
+    <div class="footer-folio">
+      Folio: ${c.folio||'—'}<br>
+      Válido por ${c.vigencia_dias||15} días a partir de la fecha de emisión<br>
+      Generado: ${new Date().toLocaleString('es-MX')}
+    </div>
+  </div>
+</div>
+<script>window.onload=()=>window.print();<\/script>
+</body></html>`);
+  w.document.close();
+}
+
+function imprimirCotizacion() {
+  if (currentDetalleCotData) generarPDF();
 }
 
 // ═══════════════════════════════════════════════════════
@@ -1243,6 +2147,8 @@ function confirmarEliminarCliente() {
 
 document.getElementById('modal-confirm-btn').onclick = () => { if (modalAction) modalAction(); };
 document.getElementById('delete-modal').addEventListener('click', e => { if (e.target.id === 'delete-modal') closeModal(); });
+document.getElementById('edit-cot-modal').addEventListener('click', e => { if (e.target.id === 'edit-cot-modal') cerrarEditarCotizacion(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); cerrarEditarCotizacion(); } });
 
 // ═══════════════════════════════════════════════════════
 //  PAGINACIÓN
